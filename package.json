@@ -1,22 +1,20 @@
 {
-    "name": "com.kirito-solutions.advanced-singleton",
-    "version": "1.0.0",
-    "displayName": "Advanced SingleTon",
-    "description": "Advanced SingleTon ",
-    "unity ": "2020.3",
-    "types": "",
-    "dependencies": {
-    },
-    "keywords": [
-      "kirito",
-      "kirito solutions",
-      "singleton",
+  "name": "com.kirito-solutions.advanced-singleton",
+  "version": "1.0.0",
+  "displayName": "Advanced SingleTon",
+  "description": "Advanced SingleTon \n\nif you want any class to be Singleton, instead of MonoBehaviour use SingleTon<ClassName>\nExample\nclass MyClass : SingleTon<MyClass>\n{\npublic void ExampleMethod(){ }\n\n}\n \n--> To access, use MyClass.GetInstance.ExampleMethod();\n\n--> If you find issues relating singletone, USE    this.InitialiseInstance()  in Awake\n\n-->If the class is attached to Gameobject, make sure to name gameobject same as class name that is being used as singleton",
+  "unity ": "2020.3",
+  "types": "",
+  "keywords": [
+    "kirito",
+    "kirito solutions",
+    "singleton",
     "advanced"
-    ],
-    "author": {
-      "name": "Hunter Kirito",
-      "url": "https://hunterkirito.in"
-    },
-    "unity": "2020.3",
-    "type": "tool"
-  }
+  ],
+  "author": {
+    "name": "Hunter Kirito",
+    "url": "https://hunterkirito.in"
+  },
+  "unity": "2020.3",
+  "type": "tool"
+}

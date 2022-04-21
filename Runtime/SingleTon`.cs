@@ -18,13 +18,13 @@ namespace Kirito_Solutions.AdvanceSingleTon
             }
         }
 
-        public static T Create()
+        public static T CreateInstance()
         {
             if (SingleTon<T>.instance == null)
             {
                 SingleTon<T>.lazyCreate = true;
             }
-            PropertyInfo property = typeof(T).GetProperty("Get");
+            PropertyInfo property = typeof(T).GetProperty("GetInstance");
             if (property != null)
             {
                 return property.GetValue(null, null) as T;
@@ -54,8 +54,10 @@ namespace Kirito_Solutions.AdvanceSingleTon
         {
             get
             {
+               
                 if (SingleTon<T>.instance == null)
                 {
+
                     SingleTon<T>.instance = (UnityEngine.Object.FindObjectOfType(typeof(T)) as T);
                     if (SingleTon<T>.instance != null)
                     {
@@ -66,7 +68,6 @@ namespace Kirito_Solutions.AdvanceSingleTon
                         SingleTon<T>.lazyCreate = false;
                         string text = typeof(T).ToString();
                         GameObject gObject = null;
-
                         if (gObject == null)
                         {
                             gObject = (GameObject)Resources.Load(text, typeof(GameObject));
@@ -74,6 +75,7 @@ namespace Kirito_Solutions.AdvanceSingleTon
                         if (gObject != null)
                         {
                             GameObject gObject2 = UnityEngine.Object.Instantiate(gObject, Vector3.zero, Quaternion.identity) as GameObject;
+                            gObject2.SetActive(true);
                             SingleTon<T>.instance = gObject2.GetComponent<T>();
                         }
                         if (SingleTon<T>.instance == null)
@@ -88,15 +90,17 @@ namespace Kirito_Solutions.AdvanceSingleTon
                         UnityEngine.Object.DontDestroyOnLoad(SingleTon<T>.instance);
                     }
                 }
+                SingleTon<T>.instance.gameObject.SetActive(true);
                 return SingleTon<T>.instance;
             }
         }
 
-        public void SetInstance()
+        public void InitialiseInstance()
         {
             if (SingleTon<T>.instance == null)
             {
                 SingleTon<T>.instance = (T)((object)this);
+                SingleTon<T>.instance.gameObject.SetActive(true);
                 SingleTon<T>.instance.gameObject.name = typeof(T).ToString();
                 UnityEngine.Object.DontDestroyOnLoad(SingleTon<T>.instance.gameObject);
                 UnityEngine.Object.DontDestroyOnLoad(SingleTon<T>.instance);
