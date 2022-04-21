@@ -1,0 +1,22 @@
+{
+    "name": "com.kirito-solutions.advanced-singleton",
+    "version": "1.0.0",
+    "displayName": "Advanced SingleTon",
+    "description": "Advanced SingleTon ",
+    "unity ": "2020.3",
+    "types": "",
+    "dependencies": {
+    },
+    "keywords": [
+      "kirito",
+      "kirito solutions",
+      "singleton",
+    "advanced"
+    ],
+    "author": {
+      "name": "Hunter Kirito",
+      "url": "https://hunterkirito.in"
+    },
+    "unity": "2020.3",
+    "type": "tool"
+  }
